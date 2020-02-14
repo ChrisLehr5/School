@@ -1,0 +1,14 @@
+E:\CIT195\Week3\Session6\clone\Demo_Wpf_TheSimpleGame\bin\Debug\Demo_Wpf_TheSimpleGame.exe.config
+E:\CIT195\Week3\Session6\clone\Demo_Wpf_TheSimpleGame\bin\Debug\Demo_Wpf_TheSimpleGame.exe
+E:\CIT195\Week3\Session6\clone\Demo_Wpf_TheSimpleGame\bin\Debug\Demo_Wpf_TheSimpleGame.pdb
+E:\CIT195\Week3\Session6\clone\Demo_Wpf_TheSimpleGame\obj\Debug\Demo_Wpf_TheSimpleGame.csprojAssemblyReference.cache
+E:\CIT195\Week3\Session6\clone\Demo_Wpf_TheSimpleGame\obj\Debug\Presentation\GameView.g.cs
+E:\CIT195\Week3\Session6\clone\Demo_Wpf_TheSimpleGame\obj\Debug\App.g.cs
+E:\CIT195\Week3\Session6\clone\Demo_Wpf_TheSimpleGame\obj\Debug\Demo_Wpf_TheSimpleGame_MarkupCompile.cache
+E:\CIT195\Week3\Session6\clone\Demo_Wpf_TheSimpleGame\obj\Debug\Demo_Wpf_TheSimpleGame_MarkupCompile.lref
+E:\CIT195\Week3\Session6\clone\Demo_Wpf_TheSimpleGame\obj\Debug\Presentation\GameView.baml
+E:\CIT195\Week3\Session6\clone\Demo_Wpf_TheSimpleGame\obj\Debug\Demo_Wpf_TheSimpleGame.g.resources
+E:\CIT195\Week3\Session6\clone\Demo_Wpf_TheSimpleGame\obj\Debug\Demo_Wpf_TheSimpleGame.Properties.Resources.resources
+E:\CIT195\Week3\Session6\clone\Demo_Wpf_TheSimpleGame\obj\Debug\Demo_Wpf_TheSimpleGame.csproj.GenerateResource.cache
+E:\CIT195\Week3\Session6\clone\Demo_Wpf_TheSimpleGame\obj\Debug\Demo_Wpf_TheSimpleGame.exe
+E:\CIT195\Week3\Session6\clone\Demo_Wpf_TheSimpleGame\obj\Debug\Demo_Wpf_TheSimpleGame.pdb

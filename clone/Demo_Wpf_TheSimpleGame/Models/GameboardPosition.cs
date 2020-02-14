@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Demo_Wpf_TheSimpleGame.Models
+{
+    /// <summary>
+    /// struct to store the game board location of a player's piece
+    /// like a basket to carry info somewhere else
+    /// </summary>
+    public struct GameboardPosition
+    {
+        public int Row { get; set; }
+        public int Column { get; set; }
+        
+        public GameboardPosition(int row, int column)
+        {
+            Row = row;
+            Column = column;
+        }
+    }
+}
