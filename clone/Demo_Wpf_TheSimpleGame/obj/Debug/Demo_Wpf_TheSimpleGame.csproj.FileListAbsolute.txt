@@ -12,3 +12,17 @@ E:\CIT195\Week3\Session6\clone\Demo_Wpf_TheSimpleGame\obj\Debug\Demo_Wpf_TheSimp
 E:\CIT195\Week3\Session6\clone\Demo_Wpf_TheSimpleGame\obj\Debug\Demo_Wpf_TheSimpleGame.csproj.GenerateResource.cache
 E:\CIT195\Week3\Session6\clone\Demo_Wpf_TheSimpleGame\obj\Debug\Demo_Wpf_TheSimpleGame.exe
 E:\CIT195\Week3\Session6\clone\Demo_Wpf_TheSimpleGame\obj\Debug\Demo_Wpf_TheSimpleGame.pdb
+C:\Users\Khyr\Desktop\clone\Demo_Wpf_TheSimpleGame\obj\Debug\Demo_Wpf_TheSimpleGame.csprojAssemblyReference.cache
+C:\Users\Khyr\Desktop\clone\Demo_Wpf_TheSimpleGame\obj\Debug\App.g.cs
+C:\Users\Khyr\Desktop\clone\Demo_Wpf_TheSimpleGame\obj\Debug\Demo_Wpf_TheSimpleGame_MarkupCompile.cache
+C:\Users\Khyr\Desktop\clone\Demo_Wpf_TheSimpleGame\obj\Debug\Demo_Wpf_TheSimpleGame.exe
+C:\Users\Khyr\Desktop\clone\Demo_Wpf_TheSimpleGame\obj\Debug\Demo_Wpf_TheSimpleGame.pdb
+C:\Users\Khyr\Desktop\clone\Demo_Wpf_TheSimpleGame\bin\Debug\Demo_Wpf_TheSimpleGame.exe.config
+C:\Users\Khyr\Desktop\clone\Demo_Wpf_TheSimpleGame\bin\Debug\Demo_Wpf_TheSimpleGame.exe
+C:\Users\Khyr\Desktop\clone\Demo_Wpf_TheSimpleGame\bin\Debug\Demo_Wpf_TheSimpleGame.pdb
+C:\Users\Khyr\Desktop\clone\Demo_Wpf_TheSimpleGame\obj\Debug\Presentation\GameView.g.cs
+C:\Users\Khyr\Desktop\clone\Demo_Wpf_TheSimpleGame\obj\Debug\Demo_Wpf_TheSimpleGame_MarkupCompile.lref
+C:\Users\Khyr\Desktop\clone\Demo_Wpf_TheSimpleGame\obj\Debug\Presentation\GameView.baml
+C:\Users\Khyr\Desktop\clone\Demo_Wpf_TheSimpleGame\obj\Debug\Demo_Wpf_TheSimpleGame.g.resources
+C:\Users\Khyr\Desktop\clone\Demo_Wpf_TheSimpleGame\obj\Debug\Demo_Wpf_TheSimpleGame.Properties.Resources.resources
+C:\Users\Khyr\Desktop\clone\Demo_Wpf_TheSimpleGame\obj\Debug\Demo_Wpf_TheSimpleGame.csproj.GenerateResource.cache

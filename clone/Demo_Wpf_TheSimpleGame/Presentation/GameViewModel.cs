@@ -10,42 +10,42 @@ namespace Demo_Wpf_TheSimpleGame.Presentation
 {
     public class GameViewModel : ObservableObject
     {
-        //test code under this line 
-        
-        //working code
-        private Gameboard _gameboard;
-        private Player _playerX;
-        private Player _playerO;
+        //private GameBusiness _gameBusiness;
+
+        private enum GameState
+        {
+            PLAYER_RED,
+            PLAYER_BLUE
+        }
+
+        private const string PLAYER_RED_CHIP_COLOR = "Red";
+        private const string PLAER_BLUE_CHIP_COLOR = "Yellow";
+        private const string EMPTY_BOARD_LOCATION_COLOR = "Gray";
+
+        public string _currentPlayer;
+        private GameState _currentGameState;
+        private string[][] _currentBoard;
         private string _messageBoxContent;
 
 
-        public Gameboard Gameboard
+
+        public string[][] CurrentBoard
         {
-            get { return _gameboard; }
+            get { return _currentBoard; }
             set
             {
-                _gameboard = value;
-                OnPropertyChanged(nameof(Gameboard));
+                _currentBoard = value;
+                OnPropertyChanged(nameof(CurrentBoard));
             }
         }
 
-        public Player PlayerX
+        public string CurrentPlayer
         {
-            get { return _playerX; }
+            get { return _currentPlayer; }
             set
             {
-                _playerX = value;
-                OnPropertyChanged(nameof(PlayerX));
-            }
-        }
-
-        public Player PlayerO
-        {
-            get { return _playerO; }
-            set
-            {
-                _playerO = value;
-                OnPropertyChanged(nameof(PlayerO));
+                _currentPlayer = value;
+                OnPropertyChanged(nameof(CurrentPlayer));
             }
         }
 
@@ -59,69 +59,73 @@ namespace Demo_Wpf_TheSimpleGame.Presentation
             }
         }
 
-        public GameViewModel((Player playerOne, Player playerTwo) players)
+        public GameViewModel()
         {
-            _playerX = players.playerOne;
-            _playerO = players.playerTwo;
-
             InitializeGame();
+        }
+
+        public GameViewModel(string currentPlayer)
+        {
+            CurrentPlayer = currentPlayer;
         }
 
         private void InitializeGame()
         {
-            _gameboard = new Gameboard();
+            _currentGameState = GameState.PLAYER_RED;
+            CurrentPlayer = GameState.PLAYER_RED.ToString();
 
-            _gameboard.CurrentRoundState = Gameboard.GameboardState.PlayerXTurn;
+            CurrentBoard = new string[10][];
+            CurrentBoard[0] = new string[10];
+            CurrentBoard[1] = new string[10];
+            CurrentBoard[2] = new string[10];
+            CurrentBoard[3] = new string[10];
+            CurrentBoard[4] = new string[10];
+            CurrentBoard[5] = new string[10];
+            CurrentBoard[6] = new string[10];
+            CurrentBoard[7] = new string[10];
 
+
+            InitializeGameboard();
             MessageBoxContent = "Player X Moves";
         }
 
-        public void PlayerMove(int row, int column)
+        /// <summary>
+        /// fill the game board array with gray pieces
+        /// </summary>
+        public void InitializeGameboard()
         {
-            if (_gameboard.GameboardPositionAvailable(new GameboardPosition(row, column)))
+            //
+            // Set all PlayerPiece array values to "None"
+            //
+            for (int row = 0; row < 7; row++)
             {
-                if (_gameboard.CurrentRoundState == Gameboard.GameboardState.PlayerXTurn)
+                for (int column = 0; column < 7; column++)
                 {
-                    Gameboard.CurrentBoard[row][column] = Gameboard.PLAYER_PIECE_X;
-                    OnPropertyChanged(nameof(Gameboard));
-                    _gameboard.CurrentRoundState = Gameboard.GameboardState.PlayerOTurn;
-                    MessageBoxContent = "Player O Moves";
+                    CurrentBoard[row][column] = EMPTY_BOARD_LOCATION_COLOR;
                 }
-                else
-                {
-                    Gameboard.CurrentBoard[row][column] = Gameboard.PLAYER_PIECE_O;
-                    OnPropertyChanged(nameof(Gameboard));
-                    _gameboard.CurrentRoundState = Gameboard.GameboardState.PlayerXTurn;
-                    MessageBoxContent = "Player X Moves";
-                }
-                UpdateCurrentRoundState();
             }
+            OnPropertyChanged(nameof(CurrentBoard));
         }
 
+        //switch on button clicks 
         internal void GameCommand(string commandName)
         {
             switch (commandName)
             {
                 case "NewGame":
-                    _gameboard.InitializeGameboard();
-                    OnPropertyChanged(nameof(Gameboard));
-
-                    _gameboard.CurrentRoundState = Gameboard.GameboardState.PlayerXTurn;
+                    InitializeGameboard();
                     break;
 
                 case "ResetGame":
-                    _gameboard.InitializeGameboard();
-                    OnPropertyChanged(nameof(Gameboard));
-
-                    _gameboard.CurrentRoundState = Gameboard.GameboardState.PlayerXTurn;
+                    InitializeGameboard();
                     break;
 
                 case "QuitSave":
-                    // add code to save game info and quit
+                    //_gameBusiness.SaveAllPlayers();
                     break;
 
                 case "Quit":
-                    // add code to quit
+                    Close();
                     break;
 
                 default:
@@ -129,39 +133,34 @@ namespace Demo_Wpf_TheSimpleGame.Presentation
                     break;
             }
         }
-        
-        
-        public void UpdateCurrentRoundState()
+
+        private void Close()
         {
-            _gameboard.UpdateGameboardState();
-            if (_gameboard.CurrentRoundState == Gameboard.GameboardState.CatsGame)
+            System.Environment.Exit(1);
+        }
+
+        internal void PlayerMove(int row, int column)
+        {
+            if (CurrentBoard[row][column] == "Gray")
             {
-                PlayerO.Ties++;
-                PlayerX.Ties++;
-                MessageBoxContent = "Tie!";
-                //need to find a way to pause before launching the reset 
-                _gameboard.InitializeGameboard();
-                OnPropertyChanged(nameof(Gameboard));
+                if (_currentGameState == GameState.PLAYER_RED)
+                {
+                    CurrentBoard[row][column] = PLAYER_RED_CHIP_COLOR;
+                    OnPropertyChanged(nameof(CurrentBoard));
+                    _currentGameState = GameState.PLAYER_BLUE;
+                    CurrentPlayer = GameState.PLAYER_BLUE.ToString();
+                    MessageBoxContent = "Player O Moves";
+                }
+                else
+                {
+                    CurrentBoard[row][column] = PLAER_BLUE_CHIP_COLOR;
+                    OnPropertyChanged(nameof(CurrentBoard));
+                    _currentGameState = GameState.PLAYER_RED;
+                    CurrentPlayer = GameState.PLAYER_RED.ToString();
+                    MessageBoxContent = "Player X Moves";
+                }
+
             }
-            else if (_gameboard.CurrentRoundState == Gameboard.GameboardState.PlayerXWin)
-            {
-                PlayerX.Wins++;
-                PlayerO.Losses++;
-                MessageBoxContent = "Player X Wins!";
-                //need to find a way to pause before launching the reset 
-                _gameboard.InitializeGameboard();
-                OnPropertyChanged(nameof(Gameboard));
-            }
-            else if (_gameboard.CurrentRoundState == Gameboard.GameboardState.PlayerOWin)
-            {
-                PlayerO.Wins++;
-                PlayerX.Losses++;
-                MessageBoxContent = "Player O Wins!";
-                //need to find a way to pause before launching the reset 
-                _gameboard.InitializeGameboard();
-                OnPropertyChanged(nameof(Gameboard));
-            }
-            
         }
 
     }
